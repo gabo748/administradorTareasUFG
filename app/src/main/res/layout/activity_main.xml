@@ -7,13 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.MainActivity">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/add_round_duotone"
+        android:backgroundTint="@color/orange"
+        android:layout_margin="16dp"
+        app:maxImageSize="30dp"
+        app:tint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:contentDescription="@string/add_item" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
