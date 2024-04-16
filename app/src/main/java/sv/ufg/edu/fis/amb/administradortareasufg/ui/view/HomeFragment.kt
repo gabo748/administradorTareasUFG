@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import sv.ufg.edu.fis.amb.administradortareasufg.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +36,21 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        // Inflar el diseño XML de tu fragmento
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // Encontrar el Floating Action Button por su ID
+        val fab: FloatingActionButton = view.findViewById(R.id.fab)
+
+        // Configurar un OnClickListener para el FAB
+        fab.setOnClickListener {
+            Snackbar.make(view, "It will open a new fragment 🚀", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
+        }
+
+        // Devolver la vista inflada
+        return view
     }
 
     companion object {
