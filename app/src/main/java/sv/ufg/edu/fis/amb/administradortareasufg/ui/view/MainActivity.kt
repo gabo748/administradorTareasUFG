@@ -2,11 +2,8 @@ package sv.ufg.edu.fis.amb.administradortareasufg.ui.view
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
@@ -19,11 +16,9 @@ import sv.ufg.edu.fis.amb.administradortareasufg.ui.viewModel.TodoViewModel
 import sv.ufg.edu.fis.amb.administradortareasufg.util.MySharedPreferences
 import androidx.appcompat.widget.Toolbar
 
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,15 +32,15 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title = "Compañero Digital"
+        supportActionBar?.title = "Digital Partner"
         supportActionBar?.setIcon(R.drawable.logo)
 
-        val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "It will open a new fragment 🚀", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
+        supportFragmentManager.commit {
+            replace<HomeFragment>(R.id.fragment_container_view)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
         }
+
 
         viewModel = ViewModelProvider(this)[TodoViewModel::class.java]
 
