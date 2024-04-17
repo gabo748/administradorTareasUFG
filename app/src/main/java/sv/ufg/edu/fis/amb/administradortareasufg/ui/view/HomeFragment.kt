@@ -39,6 +39,8 @@ class HomeFragment : Fragment() {
         // Inflar el diseño XML de tu fragmento
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        setShapeDrawable(view.findViewById(R.id.status_image), R.color.orange)
+
         // Encontrar el Floating Action Button por su ID
         val fab: FloatingActionButton = view.findViewById(R.id.fab)
 
@@ -51,6 +53,13 @@ class HomeFragment : Fragment() {
 
         // Devolver la vista inflada
         return view
+    }
+    private fun setShapeDrawable(imageView: ImageView, colorResId: Int) {
+        val shapeDrawable = GradientDrawable()
+        shapeDrawable.shape = GradientDrawable.RECTANGLE
+        shapeDrawable.setColor(resources.getColor(colorResId))
+        shapeDrawable.cornerRadius = resources.getDimension(R.dimen.corner_radius)
+        imageView.background = shapeDrawable
     }
 
     companion object {
