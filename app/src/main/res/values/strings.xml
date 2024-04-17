@@ -2,4 +2,5 @@
     <string name="app_name">administradorTareasUFG</string>
     <string name="addBtn">Add</string>
     <string name="add_item">Add item</string>
+    <string name="default_text">Este es el texto predeterminado</string>
 </resources>
