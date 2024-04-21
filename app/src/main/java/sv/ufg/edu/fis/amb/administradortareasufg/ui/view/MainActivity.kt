@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        //CODIGO QUE CORRE EL FRAGMENTO AL CARGAR
+        val taskDetailsFragment = task_details_fragment()
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, taskDetailsFragment)
+            .commit()
+        //----------------------------------------
+
+
         viewModel = ViewModelProvider(this)[TodoViewModel::class.java]
 
         val todosString = MySharedPreferences.getJsonData(this)

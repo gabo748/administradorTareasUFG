@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.android.material.checkbox.MaterialCheckBox
 import sv.ufg.edu.fis.amb.administradortareasufg.R
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,26 +33,50 @@ class task_details_fragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.task_details_fragment, container, false)
-    }
+        // Inflar el diseño del fragmento
+        val view = inflater.inflate(R.layout.task_details_fragment, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment task_details_fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
-                task_details_fragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
+        val checkBox = view.findViewById<MaterialCheckBox>(R.id.status1)
+        val checkBox2 = view.findViewById<MaterialCheckBox>(R.id.status2)
+        val checkBox3 = view.findViewById<MaterialCheckBox>(R.id.status3)
+
+        val checkBoxList = listOf(checkBox, checkBox2, checkBox3)
+
+        checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                checkBoxList.forEach { cb ->
+                    if (cb != buttonView && cb.isChecked) {
+                        cb.isChecked = false
                     }
                 }
+                Toast.makeText(context, "Su tarea está próxima a empezar", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        checkBox2.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                checkBoxList.forEach { cb ->
+                    if (cb != buttonView && cb.isChecked) {
+                        cb.isChecked = false
+                    }
+                }
+                Toast.makeText(context, "Su tarea está en proceso...", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        checkBox3.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                checkBoxList.forEach { cb ->
+                    if (cb != buttonView && cb.isChecked) {
+                        cb.isChecked = false
+                    }
+                }
+                Toast.makeText(context, "Su tarea ha sido completada!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+        return view
     }
 }
+

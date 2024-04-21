@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.task_details_fragment">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detalles de la Tarea"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/alata"
+        android:text="Detalles de la Tarea"
         android:textSize="20dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/title_task_name"
@@ -22,6 +24,7 @@
         android:text="Nombre de la Tarea"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="60dp"
+        android:fontFamily="@font/alata"
         android:textSize="15dp"
         android:layout_below="@id/title"/>
 
@@ -38,6 +41,7 @@
         <!--Este es el EditText real donde los usuarios pueden ingresar texto.-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/task_name"
+            android:fontFamily="@font/alata"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -51,6 +55,7 @@
         android:text="Descripción:"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="150dp"
+        android:fontFamily="@font/alata"
         android:textSize="15dp"
         android:layout_below="@id/txt_container_task_name"/>
 
@@ -69,6 +74,7 @@
             android:id="@+id/task_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
             android:inputType="textMultiLine"
             android:minLines="7"/>
 
@@ -80,8 +86,9 @@
         android:layout_height="wrap_content"
         android:text="Iconos"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="365dp"
         android:textSize="15dp"
+        android:fontFamily="@font/alata"
         android:layout_below="@id/task_description"/>
 
     <LinearLayout
@@ -139,38 +146,49 @@
         android:gravity="start"
         android:orientation="vertical">
 
-        <Switch
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/status1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:checked="false"
-            android:text="Por empezar                                            "
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            app:useMaterialThemeColors="false"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:fontFamily="@font/alata"
+            android:text=" Por empezar"
+            android:button="@drawable/checked_box_"
+            />
 
-        <Switch
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/status2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:checked="false"
-            android:text="En progreso                                             "
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            app:useMaterialThemeColors="false"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:fontFamily="@font/alata"
+            android:text=" En progreso"
+            android:button="@drawable/checked_box_"
+            />
 
-        <Switch
-            android:id="@+id/status3"
-            android:layout_width="wrap_content"
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:id="@+id/status3"
             android:checked="false"
-            android:text="Completada                                             "
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            app:useMaterialThemeColors="false"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:fontFamily="@font/alata"
+            android:text=" Completado"
+            android:button="@drawable/checked_box_"
+            />
+
+
     </LinearLayout>
 
     <LinearLayout
