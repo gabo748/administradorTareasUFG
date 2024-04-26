@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.task_details_fragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/alata"
         android:text="Detalles de la Tarea"
         android:textSize="20dp"
@@ -23,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Nombre de la Tarea"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/alata"
         android:textSize="15dp"
         android:layout_below="@id/title"/>
@@ -34,16 +39,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
-        android:hint="Tarea">
+        android:hint="Tarea"
+        app:counterEnabled="true"
+        app:counterMaxLength="20">
 
         <!--Este es el EditText real donde los usuarios pueden ingresar texto.-->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/task_name"
             android:fontFamily="@font/alata"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLength="20"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="Descripción:"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/alata"
         android:textSize="15dp"
         android:layout_below="@id/txt_container_task_name"/>
@@ -65,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
         android:hint="Ingresa una pequeña descripción...">
 
@@ -76,7 +84,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/alata"
             android:inputType="textMultiLine"
-            android:minLines="7"/>
+            android:minLines="7" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +94,7 @@
         android:layout_height="wrap_content"
         android:text="Iconos"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="365dp"
+        android:layout_marginTop="8dp"
         android:textSize="15dp"
         android:fontFamily="@font/alata"
         android:layout_below="@id/task_description"/>
@@ -96,37 +104,41 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="385dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginRight="30dp"
+        android:weightSum="4">
 
         <!-- Primer botón -->
         <Button
             android:id="@+id/icon1"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="👍"/>
+            android:text="👍"
+            android:layout_marginEnd="8dp" /> <!-- Agregar este margen -->
 
         <!-- Segundo botón -->
         <Button
             android:id="@+id/icon2"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="😍"/>
+            android:text="😍"
+            android:layout_marginEnd="8dp" /> <!-- Agregar este margen -->
 
         <!-- Tercer botón -->
         <Button
             android:id="@+id/icon3"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="🤞"/>
+            android:text="🤞"
+            android:layout_marginEnd="8dp" /> <!-- Agregar este margen -->
 
         <!-- Cuarto botón -->
         <Button
             android:id="@+id/icon4"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="😥"/>
+            android:text="😥" />
 
     </LinearLayout>
 
@@ -135,14 +147,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Status"
+        android:fontFamily="@font/alata"
+
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="8dp"
         android:textSize="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="198dp"
-        android:layout_marginTop="455dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="10dp"
         android:gravity="start"
         android:orientation="vertical">
 
@@ -188,24 +202,146 @@
             android:button="@drawable/checked_box_"
             />
 
-
     </LinearLayout>
 
+        <TextView
+            android:id="@+id/title_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Entrega"
+            android:fontFamily="@font/alata"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="8dp"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ck_today"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                app:useMaterialThemeColors="false"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/alata"
+                android:text=" Hoy"
+                android:button="@drawable/checked_box_"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ck_thisWeek"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                app:useMaterialThemeColors="false"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/alata"
+                android:text=" Esta semana"
+                android:button="@drawable/checked_box_"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ck_twoWeeks"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                app:useMaterialThemeColors="false"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/alata"
+                android:text=" Dos semanas"
+                android:button="@drawable/checked_box_"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Nivel de Prioridad"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/alata"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:orientation="horizontal">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priority1"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                app:useMaterialThemeColors="false"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/alata"
+                android:text=" Normal"
+                android:button="@drawable/checked_box_"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priority2"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                app:useMaterialThemeColors="false"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/alata"
+                android:text=" Media"
+                android:button="@drawable/checked_box_"
+                />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priority3"
+                android:checked="false"
+                android:layout_marginLeft="30dp"
+                app:useMaterialThemeColors="false"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:fontFamily="@font/alata"
+                android:text=" Alta"
+                android:button="@drawable/checked_box_"
+                />
+
+        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="right"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp">
 
         <!-- Primer botón -->
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eliminar"/>
+            android:text="Eliminar"
+            android:layout_marginRight="15dp"/>
 
         <!-- Segundo botón -->
         <Button
@@ -214,7 +350,7 @@
             android:layout_height="wrap_content"
             android:text="Guardar"/>
 
+        </LinearLayout>
     </LinearLayout>
 
-
-</FrameLayout>
+</ScrollView>
