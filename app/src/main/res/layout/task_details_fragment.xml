@@ -88,7 +88,44 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+        <TextView
+            android:id="@+id/title_selectDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleciona la fecha de entrega"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"
+            android:fontFamily="@font/alata"
+            android:layout_below="@id/txt_container_desc_name"/>
+
+
+
+        <Button
+            android:id="@+id/date_picker_button"
+            android:layout_marginLeft="100dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="🗓️"
+            android:layout_marginEnd="820dp"
+            android:layout_marginStart="30dp"
+            />
+
+        <TextView
+            android:id="@+id/date_selected_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="FECHA: DD/MM/YYYY"
+            android:text=""
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"
+            android:fontFamily="@font/alata"
+            android:layout_below="@id/date_picker_button"/>
+
+
+
+        <TextView
         android:id="@+id/title_icons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
