@@ -9,10 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
@@ -29,9 +27,8 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-import java.util.UUID
 
-class task_details_fragment(val todo: Todo?) : Fragment() {
+class TaskDetailFragment(val todo: Todo?) : Fragment() {
     // Binding
     private lateinit var viewModel: TodoViewModel
     private lateinit var updatedPriority: TodoPriority
@@ -111,22 +108,37 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
 
     private fun saveOrUpdateTodoAction() {
         btnSaveTodo.setOnClickListener {
-            setUpUpdatedTaskStates()
-            val updatedTodo = Todo(
-                topic = taskNameEditText.text.toString(),
-                description = taskDescriptionEditText.text.toString(),
-                priority = updatedPriority,
-                status = updatedTodoStatus,
-                doDate = updatedTodoDate,
-                dateRange = updatedDateRange
-            )
+            val statusIndexSelected = getIndexOfCheckBoxSelected(checkBoxList)
+            val doDateRangeIndexSelected = getIndexOfCheckBoxSelected(checkBoxList2)
+            val priorityIndexSelected = getIndexOfCheckBoxSelected(checkBoxList3)
 
-            Log.d("newTodo", "Todo : ${updatedTodo}")
-
-            if (todo == null) {
-                viewModel.insertTodo(requireContext(), updatedTodo)
+            // validar que no hayan campos vacios
+            if (
+                statusIndexSelected == null ||
+                doDateRangeIndexSelected == null ||
+                priorityIndexSelected == null ||
+                taskNameEditText.text.toString().isEmpty() ||
+                taskDescriptionEditText.text.toString().isEmpty() ||
+                dateTextView.text.toString().isEmpty()
+                ) {
+                Toast.makeText(context, "POR FAVOR NO DEJES CAMPOS VACIOS", Toast.LENGTH_SHORT).show()
             } else {
-                viewModel.updateTodo(requireContext(), updatedTodo)
+                setUpUpdatedTaskStates()
+
+                val updatedTodo = Todo(
+                    topic = taskNameEditText.text.toString(),
+                    description = taskDescriptionEditText.text.toString(),
+                    priority = updatedPriority,
+                    status = updatedTodoStatus,
+                    doDate = updatedTodoDate,
+                    dateRange = updatedDateRange
+                )
+
+                if (todo == null) {
+                    viewModel.insertTodo(requireContext(), updatedTodo)
+                } else {
+                    viewModel.updateTodo(requireContext(), updatedTodo)
+                }
             }
         }
     }
