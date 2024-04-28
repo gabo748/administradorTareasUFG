@@ -18,7 +18,6 @@ import sv.ufg.edu.fis.amb.administradortareasufg.ui.viewModel.TodoViewModel
 import sv.ufg.edu.fis.amb.administradortareasufg.util.MySharedPreferences
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: TodoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
