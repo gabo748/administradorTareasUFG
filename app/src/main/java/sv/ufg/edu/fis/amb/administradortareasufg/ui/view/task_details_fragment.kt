@@ -8,6 +8,42 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.checkbox.MaterialCheckBox
 import sv.ufg.edu.fis.amb.administradortareasufg.R
+    // Binding
+    private lateinit var viewModel: TodoViewModel
+    private lateinit var updatedPriority: TodoPriority
+    private lateinit var updatedDateRange: DateRange
+    private lateinit var updatedTodoStatus: TodoStatus
+    private lateinit var updatedTodoDate: Date
+
+    // Buttons
+    private lateinit var btnShowDatePicker: Button
+    private lateinit var btnSaveTodo: Button
+
+    // TextViews
+    private lateinit var dateTextView: TextView
+
+    // CheckBox
+    private  lateinit var checkBox: MaterialCheckBox
+    private  lateinit var checkBox2: MaterialCheckBox
+    private  lateinit var checkBox3: MaterialCheckBox
+    private  lateinit var checkBox4: MaterialCheckBox
+    private  lateinit var checkBox5: MaterialCheckBox
+    private  lateinit var checkBox6: MaterialCheckBox
+    private  lateinit var checkBox7: MaterialCheckBox
+    private  lateinit var checkBox8: MaterialCheckBox
+    private  lateinit var checkBox9: MaterialCheckBox
+
+    // CheckBoxList
+    private  lateinit var checkBoxList: List<MaterialCheckBox>
+    private  lateinit var checkBoxList2: List<MaterialCheckBox>
+    private  lateinit var checkBoxList3: List<MaterialCheckBox>
+
+    // Edit Text
+    private lateinit var taskNameEditText: TextInputEditText
+    private lateinit var taskDescriptionEditText: TextInputEditText
+
+
+    private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
