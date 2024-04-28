@@ -1,5 +1,6 @@
 package sv.ufg.edu.fis.amb.administradortareasufg.data.model
 
+import java.util.Date
 import java.util.UUID
 
 data class Todo(
@@ -7,9 +8,9 @@ data class Todo(
     val topic: String,
     val description: String,
     val priority: TodoPriority,
-    val doDate: String,
-    val dateRange: DateRange,
-    val subject: String
+    val status: TodoStatus,
+    val doDate: Date,
+    val dateRange: DateRange
 )
 
 
