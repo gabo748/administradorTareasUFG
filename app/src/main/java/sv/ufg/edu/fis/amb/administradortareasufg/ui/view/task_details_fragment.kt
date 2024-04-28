@@ -195,7 +195,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "Su tarea está próxima a empezar", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -206,7 +205,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "Su tarea está en proceso...", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -217,7 +215,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "Su tarea ha sido completada!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -228,7 +225,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "Su tarea se entrega HOY!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -239,7 +235,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "Su tarea se entra ESTA SEMANA!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -250,7 +245,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "Su tarea se entrega en DOS SEMANAS!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -261,7 +255,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "El nivel de prioridad de su tarea es NORMAL!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -272,7 +265,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "El nivel de prioridad de su tarea es MEDIA!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -283,7 +275,6 @@ class task_details_fragment(val todo: Todo?) : Fragment() {
                         cb.isChecked = false
                     }
                 }
-                Toast.makeText(context, "El nivel de prioridad de su tarea es ALTA!", Toast.LENGTH_SHORT).show()
             }
         }
 
