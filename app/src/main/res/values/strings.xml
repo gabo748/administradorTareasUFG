@@ -1,5 +1,29 @@
 <resources>
     <string name="app_name">administradorTareasUFG</string>
-<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="str_title">Detalles de la tarea:</string>
+    <string name="str_title_task_name">Nombre de la tarea</string>
+    <string name="str_hint_task_name">Tarea</string>
+    <string name="str_title_desc_task">Descripción: </string>
+    <string name="str_hint_desc_task">Ingresa una pequeña descripción...</string>
+    <string name="str_select_date">Seleccione la fecha de Entrega</string>
+    <string name="str_selected_date">FECHA: DD/MM/YYYY</string>
+    <string name="str_icons">Iconos</string>
+    <string name="str_status">Status</string>
+    <string name="str_status1">  Por empezar</string>
+    <string name="str_status2">  En progreso</string>
+    <string name="str_status3">  Completado</string>
+    <string name="str_date">Fecha de Entrega</string>
+    <string name="str_today">Hoy</string>
+    <string name="str_twoWeeks">Dos semanas</string>
+    <string name="str_thisWeek">Esta semana</string>
+    <string name="str_priority">Nivel de Prioridad</string>
+    <string name="str_priority1">Normal</string>
+    <string name="str_priority2">Media</string>
+    <string name="str_priority3">Alta</string>
+    <string name="str_btn_delete">Eliminar</string>
+    <string name="str_btn_save">Guardar</string>
+
+
 </resources>

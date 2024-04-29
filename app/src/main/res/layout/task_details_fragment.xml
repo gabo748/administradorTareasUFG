@@ -18,7 +18,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/alata"
-        android:text="Detalles de la Tarea"
+        android:text="@string/str_title"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/title_task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre de la Tarea"
+        android:text="@string/str_title_task_name"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/alata"
@@ -41,7 +41,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
-        android:hint="Tarea"
+        android:hint="@string/str_hint_task_name"
         app:counterEnabled="true"
         app:counterMaxLength="20">
 
@@ -60,7 +60,7 @@
         android:id="@+id/title_description_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Descripción:"
+        android:text="@string/str_title_desc_task"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/alata"
@@ -75,7 +75,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
-        android:hint="Ingresa una pequeña descripción...">
+        android:hint="@string/str_hint_desc_task">
 
         <!--Este es el EditText real donde los usuarios pueden ingresar texto.-->
         <com.google.android.material.textfield.TextInputEditText
@@ -88,34 +88,23 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/title_selectDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleciona la fecha de entrega"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
-            android:textSize="15dp"
-            android:fontFamily="@font/alata"
-            android:layout_below="@id/txt_container_desc_name"/>
-
-
-
         <Button
             android:id="@+id/date_picker_button"
-            android:layout_marginLeft="100dp"
-            android:layout_width="60dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:text="🗓️"
-            android:layout_marginEnd="820dp"
-            android:layout_marginStart="30dp"
-            />
+            android:drawableLeft="@drawable/icon_calendar"
+            android:text="@string/str_select_date"
+            android:textSize="16sp"
+            android:fontFamily="@font/alata"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:padding="16dp" />
 
         <TextView
             android:id="@+id/date_selected_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="FECHA: DD/MM/YYYY"
+            android:hint="@string/str_selected_date"
             android:text=""
             android:layout_marginLeft="30dp"
             android:layout_marginTop="8dp"
@@ -129,7 +118,7 @@
         android:id="@+id/title_icons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iconos"
+        android:text="@string/str_icons"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="8dp"
         android:textSize="15dp"
@@ -149,31 +138,31 @@
         <!-- Primer botón -->
         <Button
             android:id="@+id/icon1"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="👍"
-            android:layout_marginEnd="8dp" /> <!-- Agregar este margen -->
+            android:layout_marginEnd="4dp" /> <!-- Agregar este margen -->
 
         <!-- Segundo botón -->
         <Button
             android:id="@+id/icon2"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="😍"
-            android:layout_marginEnd="8dp" /> <!-- Agregar este margen -->
+            android:layout_marginEnd="4dp" /> <!-- Agregar este margen -->
 
         <!-- Tercer botón -->
         <Button
             android:id="@+id/icon3"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="🤞"
-            android:layout_marginEnd="8dp" /> <!-- Agregar este margen -->
+            android:layout_marginEnd="4dp" /> <!-- Agregar este margen -->
 
         <!-- Cuarto botón -->
         <Button
             android:id="@+id/icon4"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:text="😥" />
 
@@ -183,7 +172,7 @@
         android:id="@+id/title_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Status"
+        android:text="@string/str_status"
         android:fontFamily="@font/alata"
 
         android:layout_marginLeft="30dp"
@@ -207,7 +196,7 @@
             android:textStyle="bold"
             android:textSize="15dp"
             android:fontFamily="@font/alata"
-            android:text=" Por empezar"
+            android:text="@string/str_status1"
             android:button="@drawable/checked_box_"
             />
 
@@ -221,7 +210,7 @@
             android:textStyle="bold"
             android:textSize="15dp"
             android:fontFamily="@font/alata"
-            android:text=" En progreso"
+            android:text="@string/str_status2"
             android:button="@drawable/checked_box_"
             />
 
@@ -235,7 +224,7 @@
             android:textStyle="bold"
             android:textSize="15dp"
             android:fontFamily="@font/alata"
-            android:text=" Completado"
+            android:text="@string/str_status3"
             android:button="@drawable/checked_box_"
             />
 
@@ -245,7 +234,7 @@
             android:id="@+id/title_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fecha de Entrega"
+            android:text="@string/str_date"
             android:fontFamily="@font/alata"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="8dp"
@@ -268,7 +257,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:fontFamily="@font/alata"
-                android:text=" Hoy"
+                android:text="@string/str_today"
                 android:button="@drawable/checked_box_"
                 />
 
@@ -282,7 +271,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:fontFamily="@font/alata"
-                android:text=" Esta semana"
+                android:text="@string/str_thisWeek"
                 android:button="@drawable/checked_box_"
                 />
 
@@ -296,7 +285,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:fontFamily="@font/alata"
-                android:text=" Dos semanas"
+                android:text="@string/str_twoWeeks"
                 android:button="@drawable/checked_box_"
                 />
 
@@ -306,11 +295,12 @@
             android:id="@+id/title_priority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" Nivel de Prioridad"
+            android:text="@string/str_priority"
             android:layout_marginLeft="30dp"
             android:fontFamily="@font/alata"
             android:layout_marginTop="8dp"
             android:textSize="15dp"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -318,6 +308,7 @@
             android:layout_marginTop="10dp"
             android:gravity="start"
             android:orientation="horizontal">
+
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="110dp"
@@ -329,7 +320,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:fontFamily="@font/alata"
-                android:text=" Normal"
+                android:text="@string/str_priority1"
                 android:button="@drawable/checked_box_"
                 />
 
@@ -343,7 +334,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:fontFamily="@font/alata"
-                android:text=" Media"
+                android:text="@string/str_priority2"
                 android:button="@drawable/checked_box_"
                 />
 
@@ -357,7 +348,7 @@
                 android:textStyle="bold"
                 android:textSize="15dp"
                 android:fontFamily="@font/alata"
-                android:text=" Alta"
+                android:text="@string/str_priority3"
                 android:button="@drawable/checked_box_"
                 />
 
@@ -372,12 +363,14 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp">
 
+
         <!-- Primer botón -->
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eliminar"
+            android:drawableLeft="@drawable/trash"
+            android:text="@string/str_btn_delete"
             android:layout_marginRight="15dp"/>
 
         <!-- Segundo botón -->
@@ -385,7 +378,8 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Guardar"/>
+            android:drawableLeft="@drawable/done"
+            android:text="@string/str_btn_save"/>
 
         </LinearLayout>
     </LinearLayout>
