@@ -174,10 +174,135 @@
         android:layout_height="wrap_content"
         android:text="@string/str_status"
         android:fontFamily="@font/alata"
-
         android:layout_marginLeft="30dp"
         android:layout_marginTop="8dp"
         android:textSize="15dp"/>
+
+    <RelativeLayout
+        android:id="@+id/container1"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/containerr_backgroud_selector"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginLeft="30dp"
+        tools:ignore="MissingConstraints"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/iconImageView1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/reloj" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iconImageView1"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:text="@string/str_status1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:button="@drawable/custom_checkbox" />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container2"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/reloj" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView2"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_status1"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container3"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/reloj" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView3"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_status1"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox" />
+        </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.textfield.TextInputEditText
@@ -63,6 +65,10 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
     private lateinit var taskNameEditText: TextInputEditText
     private lateinit var taskDescriptionEditText: TextInputEditText
 
+    //1) RelativeLayout -- de los otros checkbox (containers)
+    private lateinit var status_container1: RelativeLayout
+    private lateinit var status_container2: RelativeLayout
+    private lateinit var status_container3: RelativeLayout
 
     private val calendar = Calendar.getInstance()
 
@@ -195,41 +201,45 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
 
     }
 
+    private fun uncheckOtherCheckBoxes(currentCheckBox: CheckBox, checkBoxList: List<CheckBox>) {
+        checkBoxList.filter { it != currentCheckBox }.forEach { it.isChecked = false }
+    }
+
     private fun setupCheckBoxes(view: View) {
-        checkBoxList = listOf(checkBox, checkBox2, checkBox3)
-        checkBoxList2 = listOf(checkBox4, checkBox5, checkBox6)
-        checkBoxList3 = listOf(checkBox7, checkBox8, checkBox9)
+        val checkBoxList = listOf(checkBox, checkBox2, checkBox3)
+        val checkBoxList2 = listOf(checkBox4, checkBox5, checkBox6)
+        val checkBoxList3 = listOf(checkBox7, checkBox8, checkBox9)
 
-        checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+
+
+        checkBox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox, checkBoxList)
+                status_container1.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container1.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox2.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox2.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox2, checkBoxList)
+                status_container2.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container2.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox3.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox3.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox3, checkBoxList)
+                status_container3.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container3.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
+        //4) Actualizar CheckBox
         checkBox4.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 checkBoxList2.forEach { cb ->
@@ -336,6 +346,7 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
         // Inflar el diseño del fragmento
         val view = inflater.inflate(R.layout.task_details_fragment, container, false)
 
+
         // TextViews
         dateTextView = view.findViewById<TextView>(R.id.date_selected_textView)
 
@@ -343,16 +354,23 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
         btnShowDatePicker = view.findViewById<Button>(R.id.date_picker_button)
         btnSaveTodo = view.findViewById<Button>(R.id.save)
 
-        // CheckBoxes
-        checkBox = view.findViewById<MaterialCheckBox>(R.id.status1)
-        checkBox2 = view.findViewById<MaterialCheckBox>(R.id.status2)
-        checkBox3 = view.findViewById<MaterialCheckBox>(R.id.status3)
+        // CheckBoxes 3) modificar id en xml.
+        checkBox = view.findViewById<MaterialCheckBox>(R.id.checkBox)
+        checkBox2 = view.findViewById<MaterialCheckBox>(R.id.checkBox2)
+        checkBox3 = view.findViewById<MaterialCheckBox>(R.id.checkBox3)
         checkBox4 = view.findViewById<MaterialCheckBox>(R.id.ck_today)
         checkBox5 = view.findViewById<MaterialCheckBox>(R.id.ck_thisWeek)
         checkBox6 = view.findViewById<MaterialCheckBox>(R.id.ck_twoWeeks)
         checkBox7 = view.findViewById<MaterialCheckBox>(R.id.priority1)
         checkBox8 = view.findViewById<MaterialCheckBox>(R.id.priority2)
         checkBox9 = view.findViewById<MaterialCheckBox>(R.id.priority3)
+
+        //Relative Layouts
+        status_container1 = view.findViewById(R.id.container1)
+        status_container2 = view.findViewById(R.id.container2)
+        status_container3 = view.findViewById(R.id.container3)
+        //2) Referenciar al id del .xml
+
 
         // Edit text
         taskNameEditText = view.findViewById<TextInputEditText>(R.id.task_name)
