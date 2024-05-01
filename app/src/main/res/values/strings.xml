@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">administradorTareasUFG</string>
+    <string name="addBtn">Add</string>
+    <string name="add_item">Add item</string>
+    <string name="default_text">Este es el texto predeterminado</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="str_title">Detalles de la tarea:</string>

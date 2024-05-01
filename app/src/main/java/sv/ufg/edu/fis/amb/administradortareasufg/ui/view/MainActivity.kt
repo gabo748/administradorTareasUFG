@@ -3,12 +3,24 @@ package sv.ufg.edu.fis.amb.administradortareasufg.ui.view
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import sv.ufg.edu.fis.amb.administradortareasufg.R
 import sv.ufg.edu.fis.amb.administradortareasufg.data.model.DateRange
 import sv.ufg.edu.fis.amb.administradortareasufg.data.model.Todo
 import sv.ufg.edu.fis.amb.administradortareasufg.data.model.TodoPriority
+import sv.ufg.edu.fis.amb.administradortareasufg.ui.viewModel.TodoViewModel
+import sv.ufg.edu.fis.amb.administradortareasufg.util.MySharedPreferences
+import androidx.appcompat.widget.Toolbar
+
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import sv.ufg.edu.fis.amb.administradortareasufg.data.model.TodoStatus
 import java.util.Date
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +29,19 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-                val todo = Todo(
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.title = "Digital Partner"
+        supportActionBar?.setIcon(R.drawable.logo)
+
+        supportFragmentManager.commit {
+            replace<HomeFragment>(R.id.fragment_container_view)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+        
+                        val todo = Todo(
             topic = "Complete assignment",
             description = "Finish the project by Friday",
             status = TodoStatus.started,
@@ -35,5 +59,9 @@ class MainActivity : AppCompatActivity() {
         //----------------------------------------
 
 
+        viewModel = ViewModelProvider(this)[TodoViewModel::class.java]
+
+
     }
+
 }
