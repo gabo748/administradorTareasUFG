@@ -17,50 +17,27 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import sv.ufg.edu.fis.amb.administradortareasufg.data.model.TodoStatus
 import java.util.Date
 
 
 
 class MainActivity : AppCompatActivity() {
+    private  lateinit var addTaskBtn: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        supportActionBar?.title = "Digital Partner"
-        supportActionBar?.setIcon(R.drawable.logo)
-
         supportFragmentManager.commit {
             replace<HomeFragment>(R.id.fragment_container_view)
             setReorderingAllowed(true)
             addToBackStack("replacement")
+
         }
-        
-                        val todo = Todo(
-            topic = "Complete assignment",
-            description = "Finish the project by Friday",
-            status = TodoStatus.started,
-            priority = TodoPriority.hard,
-            doDate = Date(), // Sample date string
-            dateRange = DateRange.thisWeek // Sample date range
-        )
-        //CODIGO QUE CORRE EL FRAGMENTO AL CARGAR
-        // Se le pasa por constructor al fragmento, el todo previamente declarado
-        // asi se muestra su info en la view
-        val taskDetailsFragment = TaskDetailFragment(todo = todo)
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, taskDetailsFragment)
-            .commit()
-        //----------------------------------------
-
-
-        viewModel = ViewModelProvider(this)[TodoViewModel::class.java]
-
 
     }
 
