@@ -2,7 +2,7 @@
     <string name="app_name">administradorTareasUFG</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="txt_welcome">Gracas por elegir nuestra aplicación para ayudarte a organzar tu día. Somos tu compañero digital</string>
-    <string name="txt_btn_go_todo">Ir a la lista de Todo's</string>
+    <string name="txt_btn_go_todo">Ir a la lista de Todo\'s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
