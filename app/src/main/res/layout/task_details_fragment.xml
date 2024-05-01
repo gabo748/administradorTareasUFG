@@ -4,19 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.view.TaskDetailFragment">
+    tools:context=".ui.view.TaskDetailFragment"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_arrow"
+            android:background="@null"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            />
+
+
+        <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/alata"
         android:text="@string/str_title"
         android:textSize="20dp"
