@@ -1,10 +1,12 @@
 package sv.ufg.edu.fis.amb.administradortareasufg.ui.view
 
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import sv.ufg.edu.fis.amb.administradortareasufg.R
