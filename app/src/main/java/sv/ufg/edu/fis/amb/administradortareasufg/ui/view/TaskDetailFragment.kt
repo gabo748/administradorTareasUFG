@@ -73,6 +73,12 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
     private lateinit var status_container1: RelativeLayout
     private lateinit var status_container2: RelativeLayout
     private lateinit var status_container3: RelativeLayout
+    private lateinit var status_container4: RelativeLayout
+    private lateinit var status_container5: RelativeLayout
+    private lateinit var status_container6: RelativeLayout
+    private lateinit var status_container7: RelativeLayout
+    private lateinit var status_container8: RelativeLayout
+    private lateinit var status_container9: RelativeLayout
 
     private val calendar = Calendar.getInstance()
 
@@ -80,7 +86,6 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewModel = ViewModelProvider(this)[TodoViewModel::class.java]
         setupBinding()
 
@@ -233,8 +238,6 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
         checkBoxList2 = listOf(checkBox4, checkBox5, checkBox6)
         checkBoxList3 = listOf(checkBox7, checkBox8, checkBox9)
 
-
-
         checkBox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 uncheckOtherCheckBoxes(checkBox, checkBoxList)
@@ -263,65 +266,63 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
         }
 
         //4) Actualizar CheckBox
-        checkBox4.setOnCheckedChangeListener { buttonView, isChecked ->
+
+        checkBox4.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList2.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox4, checkBoxList2)
+                status_container4.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container4.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox5.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox5.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList2.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox5, checkBoxList2)
+                status_container5.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container5.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox6.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox6.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList2.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox6, checkBoxList2)
+                status_container6.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container6.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox7.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox7.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList3.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox7, checkBoxList3)
+                status_container7.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container7.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox8.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox8.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList3.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox8, checkBoxList3)
+                status_container8.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container8.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
 
-        checkBox9.setOnCheckedChangeListener { buttonView, isChecked ->
+        checkBox9.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                checkBoxList3.forEach { cb ->
-                    if (cb != buttonView && cb.isChecked) {
-                        cb.isChecked = false
-                    }
-                }
+                uncheckOtherCheckBoxes(checkBox9, checkBoxList3)
+                status_container9.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_checked)
+            } else {
+                status_container9.background = ContextCompat.getDrawable(requireContext(), R.drawable.container_unchecked)
             }
         }
+
+
+
 
     }
 
@@ -393,6 +394,12 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
         status_container1 = view.findViewById(R.id.container1)
         status_container2 = view.findViewById(R.id.container2)
         status_container3 = view.findViewById(R.id.container3)
+        status_container4 = view.findViewById(R.id.container4)
+        status_container5 = view.findViewById(R.id.container5)
+        status_container6 = view.findViewById(R.id.container6)
+        status_container7 = view.findViewById(R.id.container7)
+        status_container8 = view.findViewById(R.id.container8)
+        status_container9 = view.findViewById(R.id.container9)
         //2) Referenciar al id del .xml
 
 
