@@ -1,6 +1,7 @@
 package sv.ufg.edu.fis.amb.administradortareasufg.ui.view
 
 import android.app.DatePickerDialog
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -30,7 +32,7 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-class TaskDetailFragment(val todo: Todo?) : Fragment() {
+class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : Fragment() {
     // Binding
     private lateinit var viewModel: TodoViewModel
     private lateinit var updatedPriority: TodoPriority
@@ -41,6 +43,8 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
     // Buttons
     private lateinit var btnShowDatePicker: Button
     private lateinit var btnSaveTodo: Button
+    private lateinit var btnDelete: Button
+    private lateinit var backButton: ImageButton
 
     // TextViews
     private lateinit var dateTextView: TextView
@@ -108,6 +112,25 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
                 0 -> updatedPriority = TodoPriority.normal
                 1 -> updatedPriority = TodoPriority.medium
                 2 -> updatedPriority = TodoPriority.hard
+            }
+        }
+    }
+
+    private fun backButtonAction() {
+        backButton.setOnClickListener {
+            val parentFragmetManager = parentFragmentManager.beginTransaction()
+            parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
+            parentFragmetManager.commit()
+        }
+    }
+
+    private fun deleteTodoAction() {
+        btnDelete.setOnClickListener {
+            if (todo != null) {
+                    viewModel.deleteTodo(requireContext(), todo)
+                    val parentFragmetManager = parentFragmentManager.beginTransaction()
+                    parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
+                    parentFragmetManager.commit()
             }
         }
     }
@@ -206,9 +229,9 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
     }
 
     private fun setupCheckBoxes(view: View) {
-        val checkBoxList = listOf(checkBox, checkBox2, checkBox3)
-        val checkBoxList2 = listOf(checkBox4, checkBox5, checkBox6)
-        val checkBoxList3 = listOf(checkBox7, checkBox8, checkBox9)
+        checkBoxList = listOf(checkBox, checkBox2, checkBox3)
+        checkBoxList2 = listOf(checkBox4, checkBox5, checkBox6)
+        checkBoxList3 = listOf(checkBox7, checkBox8, checkBox9)
 
 
 
@@ -346,13 +369,14 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
         // Inflar el diseño del fragmento
         val view = inflater.inflate(R.layout.task_details_fragment, container, false)
 
-
         // TextViews
         dateTextView = view.findViewById<TextView>(R.id.date_selected_textView)
 
         // Buttons
         btnShowDatePicker = view.findViewById<Button>(R.id.date_picker_button)
         btnSaveTodo = view.findViewById<Button>(R.id.save)
+        btnDelete = view.findViewById<Button>(R.id.delete)
+        backButton = view.findViewById<ImageButton>(R.id.backButton)
 
         // CheckBoxes 3) modificar id en xml.
         checkBox = view.findViewById<MaterialCheckBox>(R.id.checkBox)
@@ -376,9 +400,24 @@ class TaskDetailFragment(val todo: Todo?) : Fragment() {
         taskNameEditText = view.findViewById<TextInputEditText>(R.id.task_name)
         taskDescriptionEditText = view.findViewById<TextInputEditText>(R.id.task_description)
 
+        if (isDeleteButtonHidden) {
+            btnDelete.visibility = View.INVISIBLE
+        }
+
+        // Retrieve todos from SharedPreferences and set them in ViewModel
+        val todosString = MySharedPreferences.getJsonData(requireContext())
+        if (todosString != null) {
+            val typeToken = object : TypeToken<MutableList<Todo>>() {}.type
+            val todos: MutableList<Todo> = Gson().fromJson(todosString, typeToken)
+            // Now you have the parsed list of todos
+            viewModel.setTodos(todos)
+        }
+
         setupCheckBoxes(view)
         showDatePickerAction()
         saveOrUpdateTodoAction()
+        deleteTodoAction()
+        backButtonAction()
 
         return view
     }
