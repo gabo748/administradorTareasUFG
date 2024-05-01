@@ -1,6 +1,7 @@
 package sv.ufg.edu.fis.amb.administradortareasufg.data.repository
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.Gson
 import sv.ufg.edu.fis.amb.administradortareasufg.data.model.Todo
 import sv.ufg.edu.fis.amb.administradortareasufg.util.MySharedPreferences
@@ -15,6 +16,7 @@ class TodoRepository {
     ) {
         // Find the index of the todo to update in the list
         val index = todos.indexOfFirst { it.id == todoToUpdate.id }
+        Log.d("INDEX", "${index}")
 
         // Check if the todo exists in the list
         if (index != -1) {
