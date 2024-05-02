@@ -4,10 +4,131 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Filtros"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <HorizontalScrollView
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:weightSum="9">
+
+            <Button
+                android:id="@+id/completed_filter_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="Completadas"
+                android:textSize="10dp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/started_filter_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="Por Empezar"
+                android:textSize="10dp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/inProgress_filter_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="En progreso"
+                android:textSize="10dp"
+                android:layout_marginEnd="4dp" />
+
+
+            <Button
+                android:id="@+id/today_filter_btn"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="Hoy"
+                android:textSize="10dp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/thisWeek_filter_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="Esta Semana"
+                android:textSize="10dp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/twoWeeks_filter_btn"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="Dos Semanas"
+                android:textSize="10dp"
+                />
+
+            <Button
+                android:id="@+id/normalPriority_filter_btn"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="Prioridad Normal"
+                android:textSize="10dp"
+                />
+
+            <Button
+                android:id="@+id/medium_filter_btn"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="Prioridad Media"
+                android:textSize="10dp"
+                />
+
+            <Button
+                android:id="@+id/hard_filter_btn"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="Prioridad Alta"
+                android:textSize="10dp"
+                />
+
+
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="110dp"
+        >
         <!-- Container for dynamically added card views -->
+
+
         <LinearLayout
             android:id="@+id/cards_container"
             android:layout_width="match_parent"
