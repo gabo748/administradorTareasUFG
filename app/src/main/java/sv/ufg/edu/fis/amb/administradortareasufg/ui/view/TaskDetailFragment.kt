@@ -132,10 +132,20 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
     private fun deleteTodoAction() {
         btnDelete.setOnClickListener {
             if (todo != null) {
-                    viewModel.deleteTodo(requireContext(), todo)
-                    val parentFragmetManager = parentFragmentManager.beginTransaction()
-                    parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
-                    parentFragmetManager.commit()
+                // Create an AlertDialog
+                val builder = AlertDialog.Builder(requireContext())
+                builder.setTitle("Confirmacion")
+                    .setMessage("Estas seguro que quieres eliminar la tarea?")
+                    .setPositiveButton("Accept") { dialog, which ->
+                        viewModel.deleteTodo(requireContext(), todo)
+                        val parentFragmetManager = parentFragmentManager.beginTransaction()
+                        parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
+                        parentFragmetManager.commit()
+                    }
+                    .setNegativeButton("Cancel") { dialog, which ->
+                        Toast.makeText(requireContext(), "Accion Cancelada", Toast.LENGTH_SHORT).show()
+                    }
+                    .show()
             }
         }
     }
