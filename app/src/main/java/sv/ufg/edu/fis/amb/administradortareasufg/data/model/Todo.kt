@@ -4,7 +4,7 @@ import java.util.Date
 import java.util.UUID
 
 data class Todo(
-    val id: UUID = UUID.randomUUID(),
+    val id: UUID,
     val topic: String,
     val description: String,
     val priority: TodoPriority,
