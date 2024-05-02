@@ -1,5 +1,6 @@
 package sv.ufg.edu.fis.amb.administradortareasufg.ui.view
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.media.Image
 import android.os.Bundle
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import java.util.UUID
 
 class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : Fragment() {
     // Binding
@@ -123,6 +125,7 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
 
     private fun backButtonAction() {
         backButton.setOnClickListener {
+
             val parentFragmetManager = parentFragmentManager.beginTransaction()
             parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
             parentFragmetManager.commit()
@@ -169,19 +172,34 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
             } else {
                 setUpUpdatedTaskStates()
 
-                val updatedTodo = Todo(
-                    topic = taskNameEditText.text.toString(),
-                    description = taskDescriptionEditText.text.toString(),
-                    priority = updatedPriority,
-                    status = updatedTodoStatus,
-                    doDate = updatedTodoDate,
-                    dateRange = updatedDateRange
-                )
 
                 if (todo == null) {
+                    val updatedTodo = Todo(
+                        id = UUID.randomUUID(),
+                        topic = taskNameEditText.text.toString(),
+                        description = taskDescriptionEditText.text.toString(),
+                        priority = updatedPriority,
+                        status = updatedTodoStatus,
+                        doDate = updatedTodoDate,
+                        dateRange = updatedDateRange
+                    )
                     viewModel.insertTodo(requireContext(), updatedTodo)
+                    Toast.makeText(requireContext(), "Nueva tarea creada", Toast.LENGTH_SHORT).show()
+                    val parentFragmetManager = parentFragmentManager.beginTransaction()
+                    parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
+                    parentFragmetManager.commit()
                 } else {
+                    val updatedTodo = Todo(
+                        id = todo.id,
+                        topic = taskNameEditText.text.toString(),
+                        description = taskDescriptionEditText.text.toString(),
+                        priority = updatedPriority,
+                        status = updatedTodoStatus,
+                        doDate = updatedTodoDate,
+                        dateRange = updatedDateRange
+                    )
                     viewModel.updateTodo(requireContext(), updatedTodo)
+                    Toast.makeText(requireContext(), "La tarea fue actualizada con exito", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -209,7 +227,7 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
         if (todosString != null) {
             val typeToken = object : TypeToken<MutableList<Todo>>() {}.type
             val todos: MutableList<Todo> = Gson().fromJson(todosString, typeToken)
-            viewModel.setTodos(todos)
+            viewModel.setTodos(requireContext())
 
             Log.d("Todos", "The value of x is: ${viewModel.todos.value}")
 
@@ -419,15 +437,6 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
 
         if (isDeleteButtonHidden) {
             btnDelete.visibility = View.INVISIBLE
-        }
-
-        // Retrieve todos from SharedPreferences and set them in ViewModel
-        val todosString = MySharedPreferences.getJsonData(requireContext())
-        if (todosString != null) {
-            val typeToken = object : TypeToken<MutableList<Todo>>() {}.type
-            val todos: MutableList<Todo> = Gson().fromJson(todosString, typeToken)
-            // Now you have the parsed list of todos
-            viewModel.setTodos(todos)
         }
 
         setupCheckBoxes(view)
