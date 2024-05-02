@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.view.TaskDetailFragment"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_arrow"
+            android:background="@null"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            />
+
+
+        <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alata"
+        android:text="@string/str_title"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title_task_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_title_task_name"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/alata"
+        android:textSize="15dp"
+        android:layout_below="@id/title"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_container_task_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:hint="@string/str_hint_task_name"
+        app:counterEnabled="true"
+        app:counterMaxLength="25"
+        app:boxStrokeColor="@color/orange"
+        app:hintTextColor="@color/orange"
+        app:cursorColor="@color/orange">
+
+        <!--Este es el EditText real donde los usuarios pueden ingresar texto.-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/task_name"
+            android:fontFamily="@font/alata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/title_description_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_title_desc_task"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/alata"
+        android:textSize="15dp"
+        android:layout_below="@id/txt_container_task_name"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_container_desc_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:hint="@string/str_hint_desc_task"
+        app:boxStrokeColor="@color/orange"
+        app:hintTextColor="@color/orange"
+        app:cursorColor="@color/orange">
+
+        <!--Este es el EditText real donde los usuarios pueden ingresar texto.-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/task_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/alata"
+            android:inputType="textMultiLine"
+            android:minLines="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/date_picker_button"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_calendar"
+            android:text="@string/str_select_date"
+            android:textSize="18sp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/alata"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/date_selected_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/str_selected_date"
+            android:text=""
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"
+            android:fontFamily="@font/alata"
+            android:layout_below="@id/date_picker_button"/>
+
+
+
+    <TextView
+        android:id="@+id/title_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_status"
+        android:fontFamily="@font/alata"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15dp"/>
+
+    <RelativeLayout
+        android:id="@+id/container1"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/containerr_backgroud_selector"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginLeft="30dp"
+        tools:ignore="MissingConstraints"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/iconImageView1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/tostart" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iconImageView1"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:text="@string/str_status1"
+            android:fontFamily="@font/alata"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:button="@drawable/custom_checkbox"
+            android:buttonTintMode="@color/white"
+            />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container2"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/progress" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView2"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_status2"
+                android:fontFamily="@font/alata"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox"
+                android:buttonTintMode="@color/white"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container3"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/donedate" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView3"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_status3"
+                android:fontFamily="@font/alata"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox"
+                android:buttonTintMode="@color/white"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_date"
+            android:fontFamily="@font/alata"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"/>
+
+        <RelativeLayout
+            android:id="@+id/container4"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView4"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView4"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_today"
+                android:fontFamily="@font/alata"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/ck_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox"
+                android:buttonTintMode="@color/white"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container5"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView5"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView5"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_thisWeek"
+                android:fontFamily="@font/alata"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/ck_thisWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox"
+                android:buttonTintMode="@color/white"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container6"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/containerr_backgroud_selector"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="30dp"
+            tools:ignore="MissingConstraints"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/iconImageView6"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/calendar" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconImageView6"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:text="@string/str_twoWeeks"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/alata"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/ck_twoWeeks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:button="@drawable/custom_checkbox"
+                android:buttonTintMode="@color/white"
+                />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/title_priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_priority"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/alata"
+            android:layout_marginTop="8dp"
+            android:textSize="15dp"/>
+
+            <RelativeLayout
+                android:id="@+id/container7"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:background="@drawable/containerr_backgroud_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginLeft="30dp"
+                tools:ignore="MissingConstraints"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/iconImageView7"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/prioridad1" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iconImageView7"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/str_priority1"
+                    android:fontFamily="@font/alata"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/priority1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:button="@drawable/custom_checkbox"
+                    android:buttonTintMode="@color/white"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container8"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:background="@drawable/containerr_backgroud_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginLeft="30dp"
+                tools:ignore="MissingConstraints"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/iconImageView8"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/prioridad2" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iconImageView8"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/str_priority2"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/alata"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/priority2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:button="@drawable/custom_checkbox"
+                    android:buttonTintMode="@color/white"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container9"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:background="@drawable/containerr_backgroud_selector"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginLeft="30dp"
+                tools:ignore="MissingConstraints"
+                android:descendantFocusability="blocksDescendants"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/iconImageView9"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/prioridad3" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iconImageView9"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/str_priority3"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/alata"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/priority3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:button="@drawable/custom_checkbox"
+                    android:buttonTintMode="@color/white"
+                    />
+            </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp">
+
+
+        <!-- Primer botón -->
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/trash"
+            android:backgroundTint="@color/orange"
+            android:text="@string/str_btn_delete"
+            android:layout_marginRight="15dp"/>
+
+        <!-- Segundo botón -->
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/done_round"
+            android:backgroundTint="@color/orange"
+            android:text="@string/str_btn_save"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
