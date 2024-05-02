@@ -7,7 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="60dp"
-    tools:context=".ui.view.wecolmeTodo">
+    tools:context=".ui.view.WecolmeTodo">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
