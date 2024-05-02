@@ -1,5 +1,7 @@
 package sv.ufg.edu.fis.amb.administradortareasufg.ui.view
 
+import android.content.res.ColorStateList
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
@@ -8,10 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -28,11 +32,108 @@ import sv.ufg.edu.fis.amb.administradortareasufg.util.MySharedPreferences
 import java.util.Date
 
 class HomeFragment : Fragment() {
+    // view model
     private lateinit var todoViewModel: TodoViewModel
+
+    // buttons
+    private lateinit var completedFilterBtn: Button
+    private lateinit var startedFilterBtn: Button
+    private lateinit var inProgressFilterBtn: Button
+    private lateinit var todayFilterBtn: Button
+    private lateinit var thisWeekFilterBtn: Button
+    private lateinit var twoWeeksFilterBtn: Button
+    private lateinit var priorityNormalFilterBtn: Button
+    private lateinit var priorityMediumFilterBtn: Button
+    private lateinit var priorityHardFilterBtn: Button
+
+    // floating Action button
+    private lateinit var addTodoFloatingButton: FloatingActionButton
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // viewModel binding
         todoViewModel = ViewModelProvider(this).get(TodoViewModel::class.java)
+    }
+
+    private fun createNewTodoAction() {
+        addTodoFloatingButton.setOnClickListener {
+            val fragmentManager = parentFragmentManager.beginTransaction()
+            val taskFragment = TaskDetailFragment(todo = null, isDeleteButtonHidden = true)
+            fragmentManager.replace(R.id.fragment_container_view, taskFragment)
+            fragmentManager.commit()
+        }
+    }
+
+    // Function to set the background of each button in the list
+
+    private fun setButtonsBackground(selectedButton: Button?) {
+        // Define your button list
+        val buttonList = listOf(
+            completedFilterBtn,
+            startedFilterBtn,
+            inProgressFilterBtn,
+            todayFilterBtn,
+            thisWeekFilterBtn,
+            twoWeeksFilterBtn,
+            priorityNormalFilterBtn,
+            priorityMediumFilterBtn,
+            priorityHardFilterBtn
+        )
+
+        val nonSelectedColor = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.orange))
+        val selectedColor = ContextCompat.getColor(requireContext(), R.color.orange)
+        val defaultColor = ContextCompat.getColor(requireContext(), R.color.mint)
+        buttonList.forEach { button ->
+            if (button == selectedButton) {
+                val colorStateList = ColorStateList(
+                    arrayOf(
+                        intArrayOf(android.R.attr.state_selected),
+                        intArrayOf()
+                    ),
+                    intArrayOf(
+                        selectedColor,
+                        defaultColor
+                    )
+                )
+
+                selectedButton.backgroundTintList = colorStateList
+            } else {
+                val colorStateList = ColorStateList(
+                    arrayOf(
+                        intArrayOf(android.R.attr.state_selected),
+                        intArrayOf()
+                    ),
+                    intArrayOf(
+                        defaultColor,
+                        selectedColor
+                    )
+                )
+                button.backgroundTintList = colorStateList
+            }
+        }
+    }
+
+    private fun setupFilterStatusButtonAction(button: Button, status: TodoStatus) {
+        button.setOnClickListener {
+            setButtonsBackground(button)
+            todoViewModel.updateTodosByStatus(requireContext(), status)
+        }
+    }
+
+    private fun setupFilterPriorityButtonAction(button: Button, status: TodoPriority) {
+        button.setOnClickListener {
+            setButtonsBackground(button)
+            todoViewModel.updateTodosByPriority(requireContext(), status)
+        }
+    }
+
+    private fun setupFilterDateRangeButtonAction(button: Button, status: DateRange) {
+        button.setOnClickListener {
+            setButtonsBackground(button)
+            todoViewModel.updateTodosByDateRange(requireContext(), status)
+        }
     }
 
     override fun onCreateView(
@@ -42,18 +143,38 @@ class HomeFragment : Fragment() {
         // Inflar el diseño XML de tu fragmento
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        // FloatingButton init
+        addTodoFloatingButton = view.findViewById(R.id.fab)
 
-        // Encontrar el Floating Action Button por su ID
-        val fab: FloatingActionButton = view.findViewById(R.id.fab)
+        // buttons init
+        completedFilterBtn = view.findViewById<Button>(R.id.completed_filter_btn)
+        startedFilterBtn = view.findViewById<Button>(R.id.started_filter_btn)
+        inProgressFilterBtn = view.findViewById<Button>(R.id.inProgress_filter_btn)
+        todayFilterBtn = view.findViewById<Button>(R.id.today_filter_btn)
+        thisWeekFilterBtn = view.findViewById<Button>(R.id.thisWeek_filter_btn)
+        twoWeeksFilterBtn = view.findViewById<Button>(R.id.twoWeeks_filter_btn)
+        priorityNormalFilterBtn = view.findViewById<Button>(R.id.normalPriority_filter_btn)
+        priorityMediumFilterBtn = view.findViewById<Button>(R.id.medium_filter_btn)
+        priorityHardFilterBtn = view.findViewById<Button>(R.id.hard_filter_btn)
 
-        // Configurar un OnClickListener para el FAB
-        fab.setOnClickListener {
-            val fragmentManager = parentFragmentManager.beginTransaction()
-            val taskFragment = TaskDetailFragment(todo = null, isDeleteButtonHidden = true)
-            fragmentManager.replace(R.id.fragment_container_view, taskFragment)
-            fragmentManager.commit()
-        }
 
+        // action executions
+        createNewTodoAction()
+
+        /// filter by status
+        setupFilterStatusButtonAction(completedFilterBtn, TodoStatus.Completed)
+        setupFilterStatusButtonAction(startedFilterBtn, TodoStatus.started)
+        setupFilterStatusButtonAction(inProgressFilterBtn, TodoStatus.inProgress)
+
+        // filter by priority
+        setupFilterPriorityButtonAction(priorityNormalFilterBtn, TodoPriority.normal)
+        setupFilterPriorityButtonAction(priorityMediumFilterBtn, TodoPriority.medium)
+        setupFilterPriorityButtonAction(priorityHardFilterBtn, TodoPriority.hard)
+
+        // filter by date range
+        setupFilterDateRangeButtonAction(todayFilterBtn, DateRange.today)
+        setupFilterDateRangeButtonAction(twoWeeksFilterBtn, DateRange.twoWeeks)
+        setupFilterDateRangeButtonAction(thisWeekFilterBtn, DateRange.thisWeek)
 
         return view
     }
@@ -70,19 +191,11 @@ class HomeFragment : Fragment() {
 
         todoViewModel.todos.observe(viewLifecycleOwner, Observer { todos ->
             todos?.let {
-
                 updateUI(todos)
             }
         })
 
-        // Retrieve todos from SharedPreferences and set them in ViewModel
-        val todosString = MySharedPreferences.getJsonData(requireContext())
-        if (todosString != null) {
-            val typeToken = object : TypeToken<MutableList<Todo>>() {}.type
-            val todos: MutableList<Todo> = Gson().fromJson(todosString, typeToken)
-            // Now you have the parsed list of todos
-            todoViewModel.setTodos(todos)
-        }
+        todoViewModel.setTodos(requireContext())
     }
 
     private fun updateUI(todos: MutableList<Todo>) {
