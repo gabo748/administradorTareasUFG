@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.commit {
-            replace<HomeFragment>(R.id.fragment_container_view)
+            replace<WecolmeTodo>(R.id.fragment_container_view)
             setReorderingAllowed(true)
             addToBackStack("replacement")
 
