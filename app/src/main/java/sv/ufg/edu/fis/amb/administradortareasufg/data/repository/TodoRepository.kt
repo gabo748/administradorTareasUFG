@@ -48,6 +48,11 @@ class TodoRepository {
         if (todos != null) {
             todos.add(todoToInsert)
             MySharedPreferences.saveJsonData(context, jsonParser.toJson(todos))
+        } else {
+            // ONLY EXECUTED FIRST TIME
+            val newTodos = mutableListOf<Todo>()
+            newTodos.add(todoToInsert)
+            MySharedPreferences.saveJsonData(context, jsonParser.toJson(newTodos))
         }
     }
 

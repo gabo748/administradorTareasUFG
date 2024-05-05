@@ -222,16 +222,10 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
     }
 
     private fun setupBinding() {
-        val todosString = MySharedPreferences.getJsonData(requireContext())
-        Log.d("StoredTodo", "Todo : ${todosString}")
-        if (todosString != null) {
-            val typeToken = object : TypeToken<MutableList<Todo>>() {}.type
-            val todos: MutableList<Todo> = Gson().fromJson(todosString, typeToken)
-            viewModel.setTodos(requireContext())
+        viewModel.setTodos(requireContext())
 
-            Log.d("Todos", "The value of x is: ${viewModel.todos.value}")
-
-        }
+        Log.d("Todos", "The value of x is: ${viewModel.todos.value}")
+        
     }
 
     private fun setCheckBoxesData(view: View) {
