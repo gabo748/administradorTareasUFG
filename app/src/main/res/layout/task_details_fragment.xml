@@ -12,6 +12,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:src="@drawable/banner2"/>
+
         <ImageButton
             android:id="@+id/backButton"
             android:layout_width="50dp"
@@ -21,6 +26,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             />
+
 
 
         <TextView
@@ -90,6 +96,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="25dp"
+        app:counterMaxLength="255"
         android:hint="@string/str_hint_desc_task"
         app:boxStrokeColor="@color/orange"
         app:hintTextColor="@color/orange"
@@ -102,7 +109,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/alata"
             android:inputType="textMultiLine"
-            android:minLines="7" />
+            android:minLines="6"
+            android:maxLength="255"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,6 +125,7 @@
             android:fontFamily="@font/alata"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
+
             android:padding="16dp" />
 
         <TextView

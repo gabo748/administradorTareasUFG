@@ -12,5 +12,6 @@
     <color name="lightGrey">#E3E8EF</color>
     <color name="darkGrey">#97A3B6</color>
     <color name="blue">#3662E3</color>
-    <color name="grey">#00000033</color>
+    <color name="redLight">#FB6D48</color>
+    <color name="cream">#d49d10</color>
 </resources>

@@ -84,7 +84,7 @@ class HomeFragment : Fragment() {
 
         val nonSelectedColor = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.orange))
         val selectedColor = ContextCompat.getColor(requireContext(), R.color.orange)
-        val defaultColor = ContextCompat.getColor(requireContext(), R.color.mint)
+        val defaultColor = ContextCompat.getColor(requireContext(), R.color.cream)
         buttonList.forEach { button ->
             if (button == selectedButton) {
                 val colorStateList = ColorStateList(

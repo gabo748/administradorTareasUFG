@@ -29,7 +29,7 @@
                 android:layout_height="48dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/custom_item"
-                android:src="@drawable/coffecup__2_"
+                android:src="@drawable/task"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,8 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/jersey10_regular"
+                android:fontFamily="@font/alata"
                 android:text="@string/default_text"
                 android:textSize="19sp"
                 app:layout_constraintEnd_toStartOf="@id/status_image"
@@ -53,7 +52,8 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="8dp"
-                android:src="@drawable/done_round_duotone"
+                android:src="@drawable/check_task"
+                android:background="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/title"
                 app:layout_constraintTop_toTopOf="parent" />
