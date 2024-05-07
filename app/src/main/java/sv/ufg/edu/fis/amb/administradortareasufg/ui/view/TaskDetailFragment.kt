@@ -139,7 +139,7 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Confirmacion")
                     .setMessage("Estas seguro que quieres eliminar la tarea?")
-                    .setPositiveButton("Accept") { dialog, which ->
+                    .setPositiveButton("Aceptar") { dialog, which ->
                         viewModel.deleteTodo(requireContext(), todo)
                         val parentFragmetManager = parentFragmentManager.beginTransaction()
                         parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
@@ -183,11 +183,23 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
                         doDate = updatedTodoDate,
                         dateRange = updatedDateRange
                     )
-                    viewModel.insertTodo(requireContext(), updatedTodo)
-                    Toast.makeText(requireContext(), "Nueva tarea creada", Toast.LENGTH_SHORT).show()
-                    val parentFragmetManager = parentFragmentManager.beginTransaction()
-                    parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
-                    parentFragmetManager.commit()
+
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setTitle("Confirmacion")
+                        .setMessage("Estas seguro que quieres agregar esta tarea?")
+                        .setPositiveButton("Aceptar") { dialog, which ->
+                            viewModel.insertTodo(requireContext(), updatedTodo)
+                            Toast.makeText(requireContext(), "Nueva tarea creada", Toast.LENGTH_SHORT).show()
+                            val parentFragmetManager = parentFragmentManager.beginTransaction()
+                            parentFragmetManager.replace(R.id.fragment_container_view, HomeFragment())
+                            parentFragmetManager.commit()
+                        }
+                        .setNegativeButton("Cancel") { dialog, which ->
+                            Toast.makeText(requireContext(), "Accion Cancelada", Toast.LENGTH_SHORT).show()
+                        }
+                        .show()
+
+
                 } else {
                     val updatedTodo = Todo(
                         id = todo.id,
@@ -198,8 +210,19 @@ class TaskDetailFragment(val todo: Todo?, val isDeleteButtonHidden: Boolean) : F
                         doDate = updatedTodoDate,
                         dateRange = updatedDateRange
                     )
-                    viewModel.updateTodo(requireContext(), updatedTodo)
-                    Toast.makeText(requireContext(), "La tarea fue actualizada con exito", Toast.LENGTH_SHORT).show()
+
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setTitle("Confirmacion")
+                        .setMessage("Estas seguro que quieres actualizar esta tarea?")
+                        .setPositiveButton("Aceptar") { dialog, which ->
+                            viewModel.updateTodo(requireContext(), updatedTodo)
+                            Toast.makeText(requireContext(), "La tarea fue actualizada con exito", Toast.LENGTH_SHORT).show()
+                        }
+                        .setNegativeButton("Cancel") { dialog, which ->
+                            Toast.makeText(requireContext(), "Accion Cancelada", Toast.LENGTH_SHORT).show()
+                        }
+                        .show()
+
                 }
             }
         }
