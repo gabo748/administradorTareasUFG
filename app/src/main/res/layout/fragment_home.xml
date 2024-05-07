@@ -1,0 +1,184 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/redLight">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/str_Title_main"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/alata"
+        android:layout_marginTop="15dp"
+        />
+
+    <HorizontalScrollView
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="30dp"
+            android:weightSum="10">
+
+            <Button
+                android:id="@+id/all_btn"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_all"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/completed_filter_btn"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter1"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/started_filter_btn"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter2"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/inProgress_filter_btn"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter3"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp" />
+
+
+            <Button
+                android:id="@+id/today_filter_btn"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter4"
+                android:textSize="14sp"
+                android:layout_marginEnd="4dp" />
+
+            <Button
+                android:id="@+id/thisWeek_filter_btn"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter5"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/twoWeeks_filter_btn"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter6"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/normalPriority_filter_btn"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter7"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/medium_filter_btn"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter8"
+                android:textSize="12sp"
+                />
+
+            <Button
+                android:id="@+id/hard_filter_btn"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:fontFamily="@font/alata"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/orange"
+                android:text="@string/str_filter9"
+                android:textSize="12sp"
+                />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="390dp"
+        >
+        <!-- Container for dynamically added card views -->
+        <LinearLayout
+            android:id="@+id/cards_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="269dp"
+        android:layout_marginTop="130dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/banner_home" />
+
+    </LinearLayout>
+    <!-- Floating action button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/add_round_duotone"
+        app:backgroundTint="@color/orange"
+        app:maxImageSize="30dp"
+        app:tint="@null"
+        android:contentDescription="@string/add_item" />
+
+</FrameLayout>

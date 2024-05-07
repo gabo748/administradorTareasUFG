@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">administradorTareasUFG</string>
+    <string name="addBtn">Add</string>
+    <string name="add_item">Add item</string>
+    <string name="default_text">Este es el texto predeterminado</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="str_title">Detalles de la tarea:</string>
+    <string name="str_title_task_name">Nombre de la tarea</string>
+    <string name="str_hint_task_name">Tarea</string>
+    <string name="str_title_desc_task">Descripción: </string>
+    <string name="str_hint_desc_task">Ingresa una pequeña descripción...</string>
+    <string name="str_select_date">Seleccione la fecha de Entrega</string>
+    <string name="str_selected_date">FECHA: DD/MM/YYYY</string>
+    <string name="str_icons">Iconos</string>
+    <string name="str_status">Status</string>
+    <string name="str_status1">  Por empezar</string>
+    <string name="str_status2">  En progreso</string>
+    <string name="str_status3">  Completado</string>
+    <string name="str_date">Fecha de Entrega</string>
+    <string name="str_all">Todas</string>
+    <string name="str_today">Hoy</string>
+    <string name="str_twoWeeks">Dos semanas</string>
+    <string name="str_thisWeek">Esta semana</string>
+    <string name="str_priority">Nivel de Prioridad</string>
+    <string name="str_priority1">Normal</string>
+    <string name="str_priority2">Media</string>
+    <string name="str_priority3">Alta</string>
+    <string name="str_btn_delete">Eliminar</string>
+    <string name="str_btn_save">Guardar</string>
+    <string name="txt_welcome">¡Gracias por elegir nuestra aplicación para ayudarte a organzar tu día! Somos tu Amigo digital</string>
+    <string name="txt_btn_go_todo">Ir a la lista de Todo\'s</string>
+    <string name="str_Title_main">Tu Amigo Digital</string>
+    <string name="str_filter1">Completadas</string>
+    <string name="str_filter2">Por empezar</string>
+    <string name="str_filter3">En Progreso</string>
+    <string name="str_filter4">Hoy</string>
+    <string name="str_filter5">Esta Semana</string>
+    <string name="str_filter6">Dos Semanas</string>
+    <string name="str_filter7">Prioridad Normal</string>
+    <string name="str_filter8">Prioridad Media</string>
+    <string name="str_filter9">Prioridad Alta</string>
+
+
+
 </resources>

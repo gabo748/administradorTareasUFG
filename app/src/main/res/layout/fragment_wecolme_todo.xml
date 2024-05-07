@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orangeSoft"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="60dp"
+    tools:context=".ui.view.WecolmeTodo">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imgBooks"
+        android:layout_width="240dp"
+        android:layout_height="313dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="2dp"
+        android:rotationX="4"
+        android:src="@drawable/books" />
+
+    <ImageView
+        android:id="@+id/imgTodo"
+        android:layout_width="170dp"
+        android:layout_height="247dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="1dp"
+        android:rotation="23"
+        android:src="@drawable/notebook_todo" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@id/imgTodo"
+        android:text="@string/txt_welcome"
+        android:fontFamily="@font/alata"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:id="@+id/txt_greeting"
+        />
+
+    <Button
+        android:id="@+id/btn_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/alata"
+        android:text="@string/txt_btn_go_todo"
+        android:layout_below="@id/txt_greeting"
+        android:backgroundTint="@color/orange"
+        />
+
+</RelativeLayout>
