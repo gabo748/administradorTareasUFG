@@ -45,6 +45,7 @@ class HomeFragment : Fragment() {
     private lateinit var priorityNormalFilterBtn: Button
     private lateinit var priorityMediumFilterBtn: Button
     private lateinit var priorityHardFilterBtn: Button
+    private lateinit var allBtn: Button
 
     // floating Action button
     private lateinit var addTodoFloatingButton: FloatingActionButton
@@ -136,6 +137,12 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun setupAllButtonAction() {
+        allBtn.setOnClickListener {
+            todoViewModel.setTodos(requireContext())
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -156,10 +163,14 @@ class HomeFragment : Fragment() {
         priorityNormalFilterBtn = view.findViewById<Button>(R.id.normalPriority_filter_btn)
         priorityMediumFilterBtn = view.findViewById<Button>(R.id.medium_filter_btn)
         priorityHardFilterBtn = view.findViewById<Button>(R.id.hard_filter_btn)
+        allBtn = view.findViewById<Button>(R.id.all_btn)
 
 
         // action executions
         createNewTodoAction()
+
+        // All todos
+        setupAllButtonAction()
 
         /// filter by status
         setupFilterStatusButtonAction(completedFilterBtn, TodoStatus.Completed)
