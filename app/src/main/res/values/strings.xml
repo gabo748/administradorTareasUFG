@@ -18,6 +18,7 @@
     <string name="str_status2">  En progreso</string>
     <string name="str_status3">  Completado</string>
     <string name="str_date">Fecha de Entrega</string>
+    <string name="str_all">Todas</string>
     <string name="str_today">Hoy</string>
     <string name="str_twoWeeks">Dos semanas</string>
     <string name="str_thisWeek">Esta semana</string>
