@@ -218,11 +218,8 @@ class HomeFragment : Fragment() {
             val titleTextView = cardView.findViewById<TextView>(R.id.title)
             titleTextView.text = todo.topic
 
-            // Get reference to the ImageButton
-            val imageButton = cardView.findViewById<ImageButton>(R.id.status_image)
-
-            // Set OnClickListener to the ImageButton
-            imageButton.setOnClickListener {
+            
+            cardView.setOnClickListener {
                 val fragmentManager = parentFragmentManager.beginTransaction()
                 val taskFragment = TaskDetailFragment(todo = todo, isDeleteButtonHidden = false)
                 fragmentManager.replace(R.id.fragment_container_view, taskFragment)
